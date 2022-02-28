@@ -1,0 +1,6 @@
+
+var User = {
+
+
+	name: "none"
+}

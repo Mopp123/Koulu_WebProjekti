@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tekijät</title>
+    <link rel="stylesheet" type="text/css" href="css/style2.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"/>
+    <link rel="stylesheet"
+          href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routingmachine.css" />
+    <link rel="stylesheet"
+          href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+</head>
+<body>
+    <header class="header">
+        <ul>
+            <li><a href="index.html">Etusivu</a></li>
+            <li><a href="media.html">Media</a></li>
+            <li><a class="active" href="tek.html">Tekijät</a></li>
+        </ul>
+        <!--<h1>Tekijät</h1>-->
+        <img src="img/tekijat.png" id="logo" />
+    </header>
+
+    <h2>Tekijät:</h2>
+    <p>Minas Hatziantoniadis <br> Matias Jalava <br> Kalle Ahonen </p>
+    <h2>Ota yhteyttä:</h2>
+    <h4>e-mail:</h4>
+    <p>minas.hatziantoniadis@metropolia.fi <br> matias.jalava@metropolia.fi <br> kalle.ahonen@metropilia.fi </p>
+
+    <img src="img/donut.png" alt="A tasty donut :)" id="donut1">
+    <img src="img/donut.png" alt="A tasty donut :)" id="donut2">
+    <img src="img/donut.png" alt="A tasty donut :)" id="donut3">
+
+    <h4>Sijainti:</h4>
+
+    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"></script>
+
+
+    <div id="map" style="width: 40%; height: 400px;"></div>
+
+    <script>
+        var long=60.22157;
+        var lat=24.80502;
+
+
+    const kartta = L.map('map').setView([long, lat], 16);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+    {attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>contributors',}).addTo(kartta);
+
+    L.marker([long, lat]).addTo(kartta)
+    .bindPopup('Vanha maantie 6 <br> 02650 Espoo')
+    .openPopup()
+    </script>
+    <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leafletrouting-machine.js"></script>
+
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+
+    <script>
+        var map = L.map('map').setView([60.22157, 24.80502],16);
+        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}{r}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+        L.Routing.control({
+            waypoints: [null],
+            routeWhileDragging: true,
+            geocoder: L.Control.Geocoder.nominatim()
+        }).addTo(map);
+    </script>
+
+    </body>
+    </html>
